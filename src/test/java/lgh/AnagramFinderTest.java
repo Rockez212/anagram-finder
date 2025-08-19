@@ -55,7 +55,7 @@ class AnagramFinderTest {
     }
 
     @Test
-    public void find_whenFindNotFound_throwException() throws IOException {
+    public void find_whenFindNotFound_throwException() {
         String wrongPath = "wrong/path.txt";
         Assertions.assertThrows(IOException.class, () -> AnagramFinder.find(wrongPath));
     }
