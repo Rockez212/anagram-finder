@@ -10,8 +10,7 @@ public class AnagramFinder {
     public static Map<String, Set<String>> find(String filePath) throws IOException {
         Map<String, Set<String>> anagramGroups = new HashMap<>();
 
-        try (
-                BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String word;
             while ((word = br.readLine()) != null) {
                 word = word.trim();
@@ -19,8 +18,7 @@ public class AnagramFinder {
                 anagramGroups.putIfAbsent(key, new HashSet<>());
                 anagramGroups.get(key).add(word);
             }
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             System.err.println("Error reading file: " + e.getMessage());
             throw e;
         }

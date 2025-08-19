@@ -28,10 +28,6 @@ class AnagramFinderTest {
         assertThat(result).hasSize(4);
     }
 
-//    check keys
-    /*check values not only size*/
-//    check if file is not found
-
     @Test
     public void find_whenInvoked_containsExpectedKeys() throws IOException {
         var result = AnagramFinder.find(filePath);
