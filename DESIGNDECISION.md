@@ -2,12 +2,20 @@
 
 ## Design Decisions
 
-I used a `HashMap<String, Set<String>>` to group words by sorted letters.  
-This makes it easy to find groups of anagrams quickly.  
-The program reads words from a file, sorts letters, and puts them in the map.
+- **Data Structure:** I used `HashMap<String, Set<String>>` where the key is the sorted letters of a word,  
+  and the value is a set of words that share the same letters. This allows fast grouping of anagrams and avoids
+  duplicates.
 
-For testing, I used **JUnit 5** and **AssertJ** libraries to make the tests clear and expressive.  
-The code is designed to be simple, easy to read, and maintainable.
+- **Key Generation:** Each word is converted to a character array, sorted, and joined back into a string.  
+  All anagrams share the same key (e.g., `listen → eilnst`, `silent → eilnst`).
+
+- **File Reading:** `BufferedReader` reads the file line by line to save memory. Empty lines are ignored.
+
+- **Error Handling:** If the file cannot be read, an `IOException` is thrown and logged to `System.err`.
+
+- **Testing:** I used **JUnit 5** and **AssertJ** to check correct grouping, expected keys, and file-not-found behavior.
+
+- **Simplicity:** The logic is simple, readable, and easy to maintain, without extra libraries for core functionality.
 
 ## Scalability Considerations
 
